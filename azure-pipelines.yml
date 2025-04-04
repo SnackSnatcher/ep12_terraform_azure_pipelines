@@ -5,27 +5,18 @@ pool:
   name: Default  # Self-hosted agent
 
 stages:
-  - stage: terraform_vaildate
-    displayName: terraform vaildate jobs and inti
+  - stage: terraform_paln
+    displayName: terraform plan the job
     jobs:
     - job:
       steps:
       - task: TerraformInstaller@1
         inputs:
           terraformVersion: 'latest'
-
       - task: TerraformTaskV4@4
         inputs:
           provider: 'azurerm'
           command: 'validate'
-
-  - stage: terraform_paln
-    dependsOn: terraform_vaildate
-    condition: succeeded('terraform_vaildate')
-    displayName: terraform plan the job
-    jobs:
-    - job:
-      steps:
       - task: TerraformTaskV4@4
         inputs:
           provider: 'azurerm'
