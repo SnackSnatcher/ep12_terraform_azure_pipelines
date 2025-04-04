@@ -27,6 +27,14 @@ stages:
         inputs:
           provider: 'azurerm'
           command: 'validate'
+
+  - stage: terraform_paln
+    dependsOn: terraform_vaildate
+    condition: succeeded('terraform_vaildate')
+    displayName: terraform plan the job
+    jobs:
+    - job:
+      steps:
       - task: TerraformTaskV4@4
         inputs:
           provider: 'azurerm'
