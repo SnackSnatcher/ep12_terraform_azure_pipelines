@@ -74,7 +74,7 @@ resource "azurerm_log_analytics_datasource_windows_event" "app_1" {
   resource_group_name = data.azurerm_resource_group.resourcegroup_1.name
   workspace_name      = azurerm_log_analytics_workspace.law_1.name
   event_log_name      = "Application"
-  event_types         = ["error", "information", "warning"]
+  event_types = ["Error", "Information", "Warning"]
 
   depends_on = [
     azurerm_log_analytics_workspace.law_1
@@ -86,7 +86,7 @@ resource "azurerm_log_analytics_datasource_windows_event" "sys_1" {
   resource_group_name = data.azurerm_resource_group.resourcegroup_1.name
   workspace_name      = azurerm_log_analytics_workspace.law_1.name
   event_log_name      = "System"
-  event_types         = ["error", "information", "warning"]
+  event_types = ["Error", "Information", "Warning"]
 
   depends_on = [
     azurerm_log_analytics_workspace.law_1
