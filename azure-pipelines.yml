@@ -13,3 +13,17 @@ stages:
       - task: TerraformInstaller@1
         inputs:
           terraformVersion: 'latest'
+      - task: TerraformTaskV4@4
+        inputs:
+          provider: 'azurerm'
+          command: 'init'
+          commandOptions: 'var-file="dev/main.tfvars"'
+          backendServiceArm: 'AzureServiceConnection'
+          backendAzureRmResourceGroupName: 'rg-devops'
+          backendAzureRmStorageAccountName: 'wetabitterrafrom'
+          backendAzureRmContainerName: 'terrafrom'
+          backendAzureRmKey: 'dev-tfstate'
+      - task: TerraformTaskV4@4
+        inputs:
+          provider: 'azurerm'
+          command: 'validate'
