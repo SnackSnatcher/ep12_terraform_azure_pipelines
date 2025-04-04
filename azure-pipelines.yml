@@ -17,7 +17,7 @@ stages:
         inputs:
           provider: 'azurerm'
           command: 'init'
-          commandOptions: 'var-file="dev/main.tfvars"'
+          commandOptions: '-var-file="dev/main.tfvars"'
           backendServiceArm: 'AzureServiceConnection'
           backendAzureRmResourceGroupName: 'rg-devops'
           backendAzureRmStorageAccountName: 'wetabitterrafrom'
