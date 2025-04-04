@@ -1,0 +1,15 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: windows-latest
+
+stages:
+  - stage: terraform_vaildate
+    displayName: terraform vaildate jobs and inti
+    jobs:
+    - job:
+      steps:
+      - task: TerraformInstaller@1
+        inputs:
+          terraformVersion: 'latest'
